@@ -1,4 +1,4 @@
-import Image from "next/image";
+import "./tasks/page";
 
 export default function Home() {
   return <div>Hello </div>;
