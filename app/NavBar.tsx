@@ -5,13 +5,14 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { FaTasks } from "react-icons/fa";
 import classnames from "classnames";
+import TaskPage from "./tasks/page";
 
 const NavBar = () => {
   const currentPath = usePathname();
 
   const links = [
     { label: "Dashboard", href: "/" },
-    { label: "Tasks", href: "/tasks" },
+    { label: "Task", href: "/page" },
   ];
 
   return (
