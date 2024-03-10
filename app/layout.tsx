@@ -1,7 +1,10 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./globals.css";
+import App from "./page";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import NavBar from "./NavBar";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 
@@ -21,7 +24,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Theme>
-          <NavBar />
           <main>{children}</main>
         </Theme>
       </body>
