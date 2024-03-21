@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import "./globals.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
-import CustomInput from "./components/CustomInput";
 
 // Define a type for each todo object
 interface Todo {
