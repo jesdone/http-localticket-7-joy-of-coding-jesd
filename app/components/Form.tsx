@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CustomInput from "./CustomInput";
+import { FaPlus } from "react-icons/fa";
 
 const Form = ({ todos, setTodos, setStatus }) => {
   const [formData, setFormData] = useState({
@@ -64,7 +65,7 @@ const Form = ({ todos, setTodos, setStatus }) => {
           placeholder={"Description"}
         />
         <button className="todo-button" type="submit">
-          <i className="fas fa-plus-square"></i>
+          <FaPlus />
         </button>
         <div className="select">
           <select onChange={statusHandler} name="todos" className="filter-todo">

@@ -42,7 +42,7 @@ const Todo = ({ todo, todos, setTodos }) => {
     setIsEditing(false);
   };
 
-  const handleEditChange = (e) => {
+  const handleEditChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
     setEditedTodo((prevState: any) => ({
       ...prevState,
@@ -83,22 +83,18 @@ const Todo = ({ todo, todos, setTodos }) => {
         </div>
       )}
       <button onClick={completeHandler} className="complete-btn">
-        {/* <i className={`fas fa-check ${todo.completed ? "completed" : ""}`}></i> */}
         <FaCheck />
       </button>
       {isEditing ? (
         <button onClick={saveEditHandler} className="edit-btn">
-          {/* <i className="fas fa-save"></i> */}
           <FaSave />
         </button>
       ) : (
         <button onClick={editHandler} className="edit-btn">
-          {/* <i className="fas fa-edit"></i> */}
           <FaEdit />
         </button>
       )}
       <button onClick={deleteHandler} className="trash-btn">
-        {/* <i className="fas fa-trash"></i> */}
         <FaTrash />
       </button>
     </div>

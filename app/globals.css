@@ -1,12 +1,25 @@
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+font {
+  font-family: "Catamaran", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
+} 
+
+
 body {
-  background-image: linear-gradient(120deg, #83c5f4 0%, #bd7ff7 100%);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(251, 251, 250, 0.528),
+    rgba(253, 253, 255, 0.5)
+  ),url('https://images.unsplash.com/photo-1527168027773-0cc890c4f42e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBvc3QlMjBpdCUyMG5vdGVzfGVufDB8fDB8fHww');
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: "Catamaran", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   min-height: 100vh;
 }
 header {
@@ -24,8 +37,9 @@ form input,
 form button {
   padding: 0.5rem;
   font-size: 2rem;
-  border: blueviolet;
-  background: white;
+  border: rgb(9, 8, 9);
+  outline-color: black;
+  background: rgb(248, 247, 248);
 }
 form button {
   color: #ff6f47;
@@ -44,7 +58,7 @@ form button:hover {
 }
 
 .todo-list {
-  min-width: 30%;
+  min-width: 60%;
   list-style: none;
 }
 
@@ -53,7 +67,7 @@ form button:hover {
   background: white;
   font-size: 1.5rem;
   color: black;
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
   transition: all 1s ease;
@@ -121,7 +135,7 @@ select {
 }
 select {
   color: #f38b6e;
-  font-family: "Poppins", sans-serif;
+  font-family: "Catamaran", sans-serif;
   cursor: pointer;
   width: 12rem;
 }
