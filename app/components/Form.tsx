@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CustomInput from "./CustomInput";
 import { FaPlus } from "react-icons/fa";
 
-const Form = ({ todos, setTodos, setStatus }) => {
+const Form = ({ tasks, setTasks, setStatus }) => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -17,10 +17,10 @@ const Form = ({ todos, setTodos, setStatus }) => {
     }));
   };
 
-  const submitTodoHandler = (e: { preventDefault: () => void }) => {
+  const submitTaskHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    setTodos([
-      ...todos,
+    setTasks([
+      ...tasks,
       {
         text: formData.title,
         description: formData.description,
@@ -42,7 +42,7 @@ const Form = ({ todos, setTodos, setStatus }) => {
 
   return (
     <main>
-      <form onSubmit={submitTodoHandler}>
+      <form onSubmit={submitTaskHandler}>
         <CustomInput
           onChange={formDataHandler}
           value={formData.title}
@@ -64,11 +64,11 @@ const Form = ({ todos, setTodos, setStatus }) => {
           name="description"
           placeholder={"Description"}
         />
-        <button className="todo-button" type="submit">
+        <button className="task-button" type="submit">
           <FaPlus />
         </button>
         <div className="select">
-          <select onChange={statusHandler} name="todos" className="filter-todo">
+          <select onChange={statusHandler} name="tasks" className="filter-task">
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted</option>

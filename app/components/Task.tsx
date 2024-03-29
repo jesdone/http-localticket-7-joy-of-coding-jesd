@@ -1,18 +1,46 @@
 import React, { useState } from "react";
 import { FaCheck, FaSave, FaEdit, FaTrash } from "react-icons/fa";
 
-const Todo = ({ todo, todos, setTodos }) => {
-  const [editedTodo, setEditedTodo] = useState({ ...todo });
+interface TaskProps {
+  task: {
+    id: number;
+    text: string;
+    dueDate: string;
+    description: string;
+    completed: boolean;
+  };
+  tasks: {
+    id: number;
+    text: string;
+    dueDate: string;
+    description: string;
+    completed: boolean;
+  }[];
+  setTasks: React.Dispatch<
+    React.SetStateAction<
+      {
+        id: number;
+        text: string;
+        dueDate: string;
+        description: string;
+        completed: boolean;
+      }[]
+    >
+  >;
+}
+
+const Task: React.FC<TaskProps> = ({ task, tasks, setTasks }) => {
+  const [editedTask, setEditedTask] = useState({ ...task });
   const [isEditing, setIsEditing] = useState(false);
 
   const deleteHandler = () => {
-    setTodos(todos.filter((el: { id: any }) => el.id !== todo.id));
+    setTasks(tasks.filter((el) => el.id !== task?.id));
   };
 
   const completeHandler = () => {
-    setTodos(
-      todos.map((item: { id: any; completed: any }) => {
-        if (item.id === todo.id) {
+    setTasks(
+      tasks.map((item) => {
+        if (item?.id === task?.id) {
           return {
             ...item,
             completed: !item.completed,
@@ -28,12 +56,12 @@ const Todo = ({ todo, todos, setTodos }) => {
   };
 
   const saveEditHandler = () => {
-    setTodos(
-      todos.map((item: { id: any }) => {
-        if (item.id === todo.id) {
+    setTasks(
+      tasks.map((item) => {
+        if (item.id === task?.id) {
           return {
             ...item,
-            ...editedTodo,
+            ...editedTask,
           };
         }
         return item;
@@ -42,44 +70,44 @@ const Todo = ({ todo, todos, setTodos }) => {
     setIsEditing(false);
   };
 
-  const handleEditChange = (e: { target: { name: any; value: any } }) => {
+  const handleEditChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setEditedTodo((prevState: any) => ({
+    setEditedTask((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
   return (
-    <div className="todo">
+    <div className="task">
       {isEditing ? (
         <div>
           <input
             type="text"
-            value={editedTodo.text}
+            value={editedTask.text}
             name="text"
             onChange={handleEditChange}
           />
           <input
             type="text"
-            value={editedTodo.dueDate}
+            value={editedTask.dueDate}
             name="dueDate"
             onChange={handleEditChange}
           />
           <input
             type="text"
-            value={editedTodo.description}
+            value={editedTask.description}
             name="description"
             onChange={handleEditChange}
           />
         </div>
       ) : (
         <div>
-          <div className={`todo-item ${todo.completed ? "completed" : ""}`}>
-            {todo.text}
+          <div className={`task-item ${task?.completed ? "completed" : ""}`}>
+            {task?.text}
           </div>
-          <div>{todo.description}</div>
-          <div>{todo.dueDate}</div>
+          <div>{task?.description}</div>
+          <div>{task?.dueDate}</div>
         </div>
       )}
       <button onClick={completeHandler} className="complete-btn">
@@ -101,4 +129,4 @@ const Todo = ({ todo, todos, setTodos }) => {
   );
 };
 
-export default Todo;
+export default Task;

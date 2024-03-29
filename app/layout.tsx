@@ -1,7 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./globals.css";
-import App from "./page";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
