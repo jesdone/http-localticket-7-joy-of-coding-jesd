@@ -30,17 +30,18 @@ interface TaskProps {
 }
 
 const Task: React.FC<TaskProps> = ({ task, tasks, setTasks }) => {
+  // const Task = ({ task, tasks, setTasks }) => {
   const [editedTask, setEditedTask] = useState({ ...task });
   const [isEditing, setIsEditing] = useState(false);
 
   const deleteHandler = () => {
-    setTasks(tasks.filter((el) => el.id !== task?.id));
+    setTasks(tasks.filter((el) => el.id !== task.id));
   };
 
   const completeHandler = () => {
     setTasks(
       tasks.map((item) => {
-        if (item?.id === task?.id) {
+        if (item.id === task?.id) {
           return {
             ...item,
             completed: !item.completed,
@@ -58,7 +59,7 @@ const Task: React.FC<TaskProps> = ({ task, tasks, setTasks }) => {
   const saveEditHandler = () => {
     setTasks(
       tasks.map((item) => {
-        if (item.id === task?.id) {
+        if (item.id === task.id) {
           return {
             ...item,
             ...editedTask,

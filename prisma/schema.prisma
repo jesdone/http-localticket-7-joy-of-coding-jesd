@@ -20,6 +20,23 @@ model Task {
   updatedAt   DateTime @updatedAt
 }
 
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(255)
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+  content   String?
+  published Boolean  @default(false)
+  authorId  Int
+  tags      Tag[]
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String
+  posts Post[]
+}
+
+
 enum Status {
   OPEN
   IN_PROGRESS

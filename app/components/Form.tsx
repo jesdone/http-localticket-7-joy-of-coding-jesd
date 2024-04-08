@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CustomInput from "./CustomInput";
 import { FaPlus } from "react-icons/fa";
+import Task from "./Task";
 
 const Form = ({ tasks, setTasks, setStatus }) => {
   const [formData, setFormData] = useState({
@@ -9,7 +10,7 @@ const Form = ({ tasks, setTasks, setStatus }) => {
     dueDate: "",
   });
 
-  const formDataHandler = (e: { target: { name: any; value: any } }) => {
+  const formDataHandler = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -17,7 +18,7 @@ const Form = ({ tasks, setTasks, setStatus }) => {
     }));
   };
 
-  const submitTaskHandler = (e: { preventDefault: () => void }) => {
+  const submitTaskHandler = (e) => {
     e.preventDefault();
     setTasks([
       ...tasks,
@@ -36,7 +37,7 @@ const Form = ({ tasks, setTasks, setStatus }) => {
     });
   };
 
-  const statusHandler = (e: { target: { value: any } }) => {
+  const statusHandler = (e) => {
     setStatus(e.target.value);
   };
 
